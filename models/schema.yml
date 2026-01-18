@@ -1,0 +1,12 @@
+
+version: 2
+
+models:
+    - name: spotify_reporting
+      description: "reporting table for spotify data - feeds into data visualisation"
+      columns:
+          - name: FACT_PLAYLIST_TRACK_ID
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
