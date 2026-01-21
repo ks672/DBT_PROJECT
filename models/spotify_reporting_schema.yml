@@ -1,0 +1,38 @@
+
+version: 2
+
+models:
+    - name: spotify_reporting
+      description: "Final reporting layer for Spotify playlist analytics - feeds into a data dashboard"
+
+      columns:
+        - name: fact_playlist_track_id
+          description: "Surrogate key from fact_playlist_track table"
+          tests:
+            - not_null
+            - unique
+
+        - name: track_name
+          description: "Spotify source track ID"
+          tests:
+            - not_null
+
+        - name: artist_name
+          description: "Spotify source artist ID"
+          tests:
+            - not_null
+
+        - name: album_name
+          description: "Source source playlist name"
+          tests:
+            - not_null
+
+        - name: source_load_timestamp
+          description: "Load timestamp from fact_playlist_track table"
+          tests:
+            - not_null    
+
+        - name: load_timestamp
+          description: "Timestamp when record was loaded"
+          tests:
+            - not_null
